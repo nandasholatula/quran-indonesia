@@ -47,7 +47,7 @@ router.get('/', (req, res) => {
                     revelation,
                     description,
                     audio,
-                    url: `${baseUrl}${number}`
+                    url: `${baseUrl}${number}/0`
                 };
             });
 
