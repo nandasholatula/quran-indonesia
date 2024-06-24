@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/api/quran', quranRouter);
 
 
-app.use('/api/surah', SurahRouter);
+app.use('/api/surah/:id', SurahRouter);
 
 
 app.listen(PORT, () => {
