@@ -19,7 +19,7 @@ router.get('/:number/:ayahNumber', (req, res) => {
     }
 
     // Check if ayahNumber is '0' to return full surah
-    if (ayahNumber === '0') {
+    if (ayahNumber == '0') {
         res.json(surah.ayahs); // Respond with all ayahs of the surah
     } else {
         // Find the specific ayah within the surah
