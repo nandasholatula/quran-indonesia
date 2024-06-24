@@ -18,14 +18,17 @@ router.get('/:number/:ayahNumber', (req, res) => {
         return res.status(404).json({ error: 'Surah not found' });
     }
 
-    // Find the ayah within the found surah
-    const ayah = surah.ayahs.find(ayah => ayah.number.inSurah === parseInt(ayahNumber));
-
-    if (!ayah) {
-        return res.status(404).json({ error: 'Ayah not found' });
+    // Check if ayahNumber is '0' to return full surah
+    if (ayahNumber === '0') {
+        res.json(surah.ayahs); // Respond with all ayahs of the surah
+    } else {
+        // Find the specific ayah within the surah
+        const ayah = surah.ayahs.find(ayah => ayah.number.inSurah === parseInt(ayahNumber));
+        if (!ayah) {
+            return res.status(404).json({ error: 'Ayah not found' });
+        }
+        res.json(ayah); // Respond with the specific ayah data
     }
-
-    res.json(ayah); // Respond with the ayah data
 });
 
 module.exports = router;
