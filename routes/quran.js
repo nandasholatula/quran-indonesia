@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
             }
 
             
-            const baseUrl = 'http://localhost:8081/api/surah/';
+            const baseUrl = 'https://quran-indonesia-mu.vercel.app/api/surah/';
 
             const surahs = jsonData.map((surah) => {
                 const {
